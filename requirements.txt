@@ -5,6 +5,7 @@ python-dotenv
 langchain-community
 langchain-core
 streamlit
+pysqlite3-binary
 langchain_ollama
 langchain_groq
 langchain_huggingface
