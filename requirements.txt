@@ -1,0 +1,10 @@
+langchain-openai
+langchain
+langchain_chroma
+python-dotenv
+langchain-community
+langchain-core
+streamlit
+langchain_ollama
+langchain_groq
+langchain_huggingface
