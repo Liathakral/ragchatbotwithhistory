@@ -1,4 +1,4 @@
-## RAG Q&A Conversation With PDF Including Chat History
+from langchain_community.vectorstores import FAISS
 import streamlit as st
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -44,7 +44,7 @@ if api_key:
     if uploaded_files:
         documents=[]
         for uploaded_file in uploaded_files:
-            temppdf=f"./temp.pdf"
+            temppdf=f"temp.pdf"
             with open(temppdf,"wb") as file:
                 file.write(uploaded_file.getvalue())
                 file_name=uploaded_file.name
@@ -56,7 +56,7 @@ if api_key:
     # Split and create embeddings for the documents
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=500)
         splits = text_splitter.split_documents(documents)
-        vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
+        vectorstore = FAISS.from_documents(splits, embeddings)
         retriever = vectorstore.as_retriever()    
 
         contextualize_q_system_prompt=(
