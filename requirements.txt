@@ -8,3 +8,4 @@ langchain_ollama
 langchain_groq
 langchain_huggingface
 sentence-transformers
+pypdf
